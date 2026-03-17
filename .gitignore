@@ -1,0 +1,15 @@
+bin/
+*.class
+
+# Eclipse / IDE metadata
+.classpath
+.project
+.settings/
+.idea/
+*.iml
+
+# macOS
+.DS_Store
+
+# Javadoc output
+doc/
