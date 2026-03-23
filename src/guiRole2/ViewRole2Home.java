@@ -175,7 +175,7 @@ public class ViewRole2Home {
 		setupLabelUI(label_UserDetails, "Arial", 20, width, Pos.BASELINE_LEFT, 20, 55);
 		
 		setupButtonUI(button_UpdateThisUser, "Dialog", 18, 170, Pos.CENTER, 610, 45);
-		button_UpdateThisUser.setOnAction((_) -> {ControllerRole2Home.performUpdate(); });
+		button_UpdateThisUser.setOnAction((event) -> {ControllerRole2Home.performUpdate(); });
 		
 		// GUI Area 2: Discussion system
 		setupLabelUI(label_Search, "Arial", 14, 60, Pos.BASELINE_LEFT, 20, 108);
@@ -189,13 +189,13 @@ public class ViewRole2Home {
 		combobox_ThreadFilter.setLayoutY(105);
 		combobox_ThreadFilter.setPrefWidth(120);
 		setupButtonUI(button_Search, "Dialog", 14, 80, Pos.CENTER, 375, 105);
-		button_Search.setOnAction((_) -> {ControllerRole2Home.performSearchPosts(); });
+		button_Search.setOnAction((event) -> {ControllerRole2Home.performSearchPosts(); });
 		setupButtonUI(button_CreatePost, "Dialog", 14, 110, Pos.CENTER, 20, 142);
-		button_CreatePost.setOnAction((_) -> {ControllerRole2Home.performCreatePost(); });
+		button_CreatePost.setOnAction((event) -> {ControllerRole2Home.performCreatePost(); });
 		setupButtonUI(button_ViewPost, "Dialog", 14, 100, Pos.CENTER, 140, 142);
-		button_ViewPost.setOnAction((_) -> {ControllerRole2Home.performViewPost(); });
+		button_ViewPost.setOnAction((event) -> {ControllerRole2Home.performViewPost(); });
 		setupButtonUI(button_Refresh, "Dialog", 14, 80, Pos.CENTER, 250, 142);
-		button_Refresh.setOnAction((_) -> {ControllerRole2Home.performRefresh(); });
+		button_Refresh.setOnAction((event) -> {ControllerRole2Home.performRefresh(); });
 		tableView_Posts.setLayoutX(20);
 		tableView_Posts.setLayoutY(180);
 		tableView_Posts.setPrefSize(760, 335);
@@ -223,10 +223,10 @@ public class ViewRole2Home {
 		
 		// GUI Area 3
         setupButtonUI(button_Logout, "Dialog", 18, 250, Pos.CENTER, 20, 540);
-        button_Logout.setOnAction((_) -> {ControllerRole2Home.performLogout(); });
+        button_Logout.setOnAction((event) -> {ControllerRole2Home.performLogout(); });
         
         setupButtonUI(button_Quit, "Dialog", 18, 250, Pos.CENTER, 300, 540);
-        button_Quit.setOnAction((_) -> {ControllerRole2Home.performQuit(); });
+        button_Quit.setOnAction((event) -> {ControllerRole2Home.performQuit(); });
 
 		// This is the end of the GUI initialization code
 		

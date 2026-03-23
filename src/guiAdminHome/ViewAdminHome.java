@@ -210,7 +210,7 @@ public class ViewAdminHome {
 		setupLabelUI(label_UserDetails, "Arial", 20, width, Pos.BASELINE_LEFT, 20, 55);
 		
 		setupButtonUI(button_UpdateThisUser, "Dialog", 18, 170, Pos.CENTER, 610, 45);
-		button_UpdateThisUser.setOnAction((_) -> 
+		button_UpdateThisUser.setOnAction((event) -> 
 				{ViewUserUpdate.displayUserUpdate(theStage, theUser);});
 			
 		// GUI Area 2
@@ -243,35 +243,35 @@ public class ViewAdminHome {
 		alertEmailSent.setHeaderText("Invitation was sent");
 
 		setupButtonUI(button_SendInvitation, "Dialog", 16, 150, Pos.CENTER, 630, 205);
-		button_SendInvitation.setOnAction((_) -> {ControllerAdminHome.performInvitation(); });
+		button_SendInvitation.setOnAction((event) -> {ControllerAdminHome.performInvitation(); });
 	
 		// GUI Area 4
 		setupButtonUI(button_ManageInvitations, "Dialog", 16, 250, Pos.CENTER, 20, 270);
-		button_ManageInvitations.setOnAction((_) -> 
+		button_ManageInvitations.setOnAction((event) -> 
 			{ControllerAdminHome.manageInvitations(); });
 	
 		setupButtonUI(button_SetOnetimePassword, "Dialog", 16, 250, Pos.CENTER, 20, 320);
-		button_SetOnetimePassword.setOnAction((_) -> 
+		button_SetOnetimePassword.setOnAction((event) -> 
 			{ControllerAdminHome.setOnetimePassword(); });
 
 		setupButtonUI(button_DeleteUser, "Dialog", 16, 250, Pos.CENTER, 20, 370);
-		button_DeleteUser.setOnAction((_) -> {ControllerAdminHome.deleteUser(); });
+		button_DeleteUser.setOnAction((event) -> {ControllerAdminHome.deleteUser(); });
 
 		setupButtonUI(button_ListUsers, "Dialog", 16, 250, Pos.CENTER, 20, 420);
-		button_ListUsers.setOnAction((_) -> {ControllerAdminHome.listUsers(); });
+		button_ListUsers.setOnAction((event) -> {ControllerAdminHome.listUsers(); });
 
 		setupButtonUI(button_AddRemoveRoles, "Dialog", 16, 250, Pos.CENTER, 20, 470);
-		button_AddRemoveRoles.setOnAction((_) -> {ControllerAdminHome.addRemoveRoles(); });
+		button_AddRemoveRoles.setOnAction((event) -> {ControllerAdminHome.addRemoveRoles(); });
 
 		setupButtonUI(button_DiscussionSystem, "Dialog", 16, 250, Pos.CENTER, 290, 470);
-		button_DiscussionSystem.setOnAction((_) -> {ControllerAdminHome.performDiscussionSystem(); });
+		button_DiscussionSystem.setOnAction((event) -> {ControllerAdminHome.performDiscussionSystem(); });
 		
 		// GUI Area 5
 		setupButtonUI(button_Logout, "Dialog", 18, 250, Pos.CENTER, 20, 540);
-		button_Logout.setOnAction((_) -> {ControllerAdminHome.performLogout(); });
+		button_Logout.setOnAction((event) -> {ControllerAdminHome.performLogout(); });
     
 		setupButtonUI(button_Quit, "Dialog", 18, 250, Pos.CENTER, 300, 540);
-		button_Quit.setOnAction((_) -> {ControllerAdminHome.performQuit(); });
+		button_Quit.setOnAction((event) -> {ControllerAdminHome.performQuit(); });
 
 		// This is the end of the GUI initialization code
 		
