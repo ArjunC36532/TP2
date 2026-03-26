@@ -71,13 +71,13 @@ public class ViewCreateReply {
 
 		Button btnCreate = new Button("Create");
 		Button btnCancel = new Button("Cancel");
-		btnCreate.setOnAction(_ -> {
+		btnCreate.setOnAction(event -> {
 			if (ControllerCreateReply.performCreate(postID, textBody.getText(), author)) {
 				created = true;
 				dialogStage.close();
 			}
 		});
-		btnCancel.setOnAction(_ -> dialogStage.close());
+		btnCancel.setOnAction(event -> dialogStage.close());
 		HBox buttons = new HBox(10);
 		buttons.getChildren().addAll(btnCreate, btnCancel);
 		buttons.setAlignment(Pos.CENTER_RIGHT);
