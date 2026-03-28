@@ -1,7 +1,10 @@
 package guiRole1;
 
 import entityClasses.Post;
-import studentPostsController.StudentPostsController;
+import guiDiscussion.ViewCreatePost;
+import guiDiscussion.ViewPostDetail;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 
 /*******
  * <p> Title: ControllerRole1Home Class. </p>
@@ -37,28 +40,34 @@ public class ControllerRole1Home {
 	}
 
 	protected static void performCreatePost() {
-		openStudentPostsScreen(null);
+		String author = ViewRole1Home.theUser != null ? ViewRole1Home.theUser.getUserName() : "";
+		if (ViewCreatePost.display(ViewRole1Home.theStage, author)) {
+			ModelRole1Home.refreshPostList(null, null);
+		}
 	}
 
 	protected static void performViewPost() {
 		Post selected = ViewRole1Home.tableView_Posts.getSelectionModel().getSelectedItem();
-		openStudentPostsScreen(selected);
+		if (selected == null) {
+			Alert alert = new Alert(AlertType.WARNING);
+			alert.setTitle("No Selection");
+			alert.setHeaderText("Select a post");
+			alert.setContentText("Please select a post from the list to view.");
+			alert.showAndWait();
+			return;
+		}
+		String username = ViewRole1Home.theUser != null ? ViewRole1Home.theUser.getUserName() : "";
+		ViewPostDetail.display(ViewRole1Home.theStage, selected, username, false, () -> ModelRole1Home.refreshPostList(null, null));
 	}
 
 	protected static void performSearchPosts() {
-		openStudentPostsScreen(ViewRole1Home.tableView_Posts.getSelectionModel().getSelectedItem());
+		String keyword = ViewRole1Home.text_SearchKeyword.getText();
+		String thread = ViewRole1Home.combobox_ThreadFilter.getSelectionModel().getSelectedItem();
+		if (keyword != null && keyword.trim().isEmpty()) keyword = null;
+		ModelRole1Home.refreshPostList(keyword, thread);
 	}
 
 	protected static void performRefresh() {
-		openStudentPostsScreen(ViewRole1Home.tableView_Posts.getSelectionModel().getSelectedItem());
-	}
-
-	private static void openStudentPostsScreen(Post selectedPost) {
-		String username = ViewRole1Home.theUser != null ? ViewRole1Home.theUser.getUserName() : "";
-		StudentPostsController.display(
-				ViewRole1Home.theStage,
-				username,
-				selectedPost,
-				() -> ModelRole1Home.refreshPostList(null, null));
+		ModelRole1Home.refreshPostList(null, null);
 	}
 }

@@ -275,7 +275,7 @@ public class ViewUserUpdate {
         setupButtonUI(button_UpdatePassword, "Dialog", 18, 275, Pos.CENTER, 500, 143);
 
         //  Make Update Password work (same pattern as the others)
-        button_UpdatePassword.setOnAction((event) -> {
+        button_UpdatePassword.setOnAction((_) -> {
             result = dialogUpdatePassword.showAndWait();
             result.ifPresent(newPw -> {
 
@@ -306,9 +306,9 @@ public class ViewUserUpdate {
         setupLabelUI(label_FirstName, "Arial", 18, 190, Pos.BASELINE_RIGHT, 5, 200);
         setupLabelUI(label_CurrentFirstName, "Arial", 18, 260, Pos.BASELINE_LEFT, 200, 200);
         setupButtonUI(button_UpdateFirstName, "Dialog", 18, 275, Pos.CENTER, 500, 193);
-        button_UpdateFirstName.setOnAction((event) -> {
+        button_UpdateFirstName.setOnAction((_) -> {
             result = dialogUpdateFirstName.showAndWait();
-            result.ifPresent(value -> theDatabase.updateFirstName(theUser.getUserName(), result.get()));
+            result.ifPresent(_ -> theDatabase.updateFirstName(theUser.getUserName(), result.get()));
             theDatabase.getUserAccountDetails(theUser.getUserName());
             String newName = theDatabase.getCurrentFirstName();
             theUser.setFirstName(newName);
@@ -320,9 +320,9 @@ public class ViewUserUpdate {
         setupLabelUI(label_MiddleName, "Arial", 18, 190, Pos.BASELINE_RIGHT, 5, 250);
         setupLabelUI(label_CurrentMiddleName, "Arial", 18, 260, Pos.BASELINE_LEFT, 200, 250);
         setupButtonUI(button_UpdateMiddleName, "Dialog", 18, 275, Pos.CENTER, 500, 243);
-        button_UpdateMiddleName.setOnAction((event) -> {
+        button_UpdateMiddleName.setOnAction((_) -> {
             result = dialogUpdateMiddleName.showAndWait();
-            result.ifPresent(value -> theDatabase.updateMiddleName(theUser.getUserName(), result.get()));
+            result.ifPresent(_ -> theDatabase.updateMiddleName(theUser.getUserName(), result.get()));
             theDatabase.getUserAccountDetails(theUser.getUserName());
             String newName = theDatabase.getCurrentMiddleName();
             theUser.setMiddleName(newName);
@@ -334,9 +334,9 @@ public class ViewUserUpdate {
         setupLabelUI(label_LastName, "Arial", 18, 190, Pos.BASELINE_RIGHT, 5, 300);
         setupLabelUI(label_CurrentLastName, "Arial", 18, 260, Pos.BASELINE_LEFT, 200, 300);
         setupButtonUI(button_UpdateLastName, "Dialog", 18, 275, Pos.CENTER, 500, 293);
-        button_UpdateLastName.setOnAction((event) -> {
+        button_UpdateLastName.setOnAction((_) -> {
             result = dialogUpdateLastName.showAndWait();
-            result.ifPresent(value -> theDatabase.updateLastName(theUser.getUserName(), result.get()));
+            result.ifPresent(_ -> theDatabase.updateLastName(theUser.getUserName(), result.get()));
             theDatabase.getUserAccountDetails(theUser.getUserName());
             String newName = theDatabase.getCurrentLastName();
             theUser.setLastName(newName);
@@ -348,9 +348,9 @@ public class ViewUserUpdate {
         setupLabelUI(label_PreferredFirstName, "Arial", 18, 190, Pos.BASELINE_RIGHT, 5, 350);
         setupLabelUI(label_CurrentPreferredFirstName, "Arial", 18, 260, Pos.BASELINE_LEFT, 200, 350);
         setupButtonUI(button_UpdatePreferredFirstName, "Dialog", 18, 275, Pos.CENTER, 500, 343);
-        button_UpdatePreferredFirstName.setOnAction((event) -> {
+        button_UpdatePreferredFirstName.setOnAction((_) -> {
             result = dialogUpdatePreferredFirstName.showAndWait();
-            result.ifPresent(value -> theDatabase.updatePreferredFirstName(theUser.getUserName(), result.get()));
+            result.ifPresent(_ -> theDatabase.updatePreferredFirstName(theUser.getUserName(), result.get()));
             theDatabase.getUserAccountDetails(theUser.getUserName());
             String newName = theDatabase.getCurrentPreferredFirstName();
             theUser.setPreferredFirstName(newName);
@@ -362,9 +362,9 @@ public class ViewUserUpdate {
         setupLabelUI(label_EmailAddress, "Arial", 18, 190, Pos.BASELINE_RIGHT, 5, 400);
         setupLabelUI(label_CurrentEmailAddress, "Arial", 18, 260, Pos.BASELINE_LEFT, 200, 400);
         setupButtonUI(button_UpdateEmailAddress, "Dialog", 18, 275, Pos.CENTER, 500, 393);
-        button_UpdateEmailAddress.setOnAction((event) -> {
+        button_UpdateEmailAddress.setOnAction((_) -> {
             result = dialogUpdateEmailAddresss.showAndWait();
-            result.ifPresent(value -> theDatabase.updateEmailAddress(theUser.getUserName(), result.get()));
+            result.ifPresent(_ -> theDatabase.updateEmailAddress(theUser.getUserName(), result.get()));
             theDatabase.getUserAccountDetails(theUser.getUserName());
             String newEmail = theDatabase.getCurrentEmailAddress();
             theUser.setEmailAddress(newEmail);
@@ -375,7 +375,7 @@ public class ViewUserUpdate {
         // Set up the button to proceed to this user's home page
         setupButtonUI(button_ProceedToUserHomePage, "Dialog", 18, 300,
                 Pos.CENTER, width/2-150, 450);
-        button_ProceedToUserHomePage.setOnAction((event) -> {
+        button_ProceedToUserHomePage.setOnAction((_) -> {
             ControllerUserUpdate.goToUserHomePage(theStage, theUser);
         });
 

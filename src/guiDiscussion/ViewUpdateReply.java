@@ -58,13 +58,13 @@ public class ViewUpdateReply {
 
 		Button btnUpdate = new Button("Update");
 		Button btnCancel = new Button("Cancel");
-		btnUpdate.setOnAction(event -> {
+		btnUpdate.setOnAction(_ -> {
 			if (ControllerUpdateReply.performUpdate(replyID, textBody.getText(), author)) {
 				updated = true;
 				dialogStage.close();
 			}
 		});
-		btnCancel.setOnAction(event -> dialogStage.close());
+		btnCancel.setOnAction(_ -> dialogStage.close());
 		HBox buttons = new HBox(10);
 		buttons.getChildren().addAll(btnUpdate, btnCancel);
 		buttons.setAlignment(Pos.CENTER_RIGHT);

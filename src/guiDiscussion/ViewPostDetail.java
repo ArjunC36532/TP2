@@ -73,7 +73,7 @@ public class ViewPostDetail {
 		// Post action buttons
 		javafx.scene.layout.HBox postButtons = new javafx.scene.layout.HBox(10);
 		Button btnCreateReply = new Button("Create Reply");
-		btnCreateReply.setOnAction(event -> {
+		btnCreateReply.setOnAction(_ -> {
 			if (ViewCreateReply.display(stage, currentPost, currentUsername)) {
 				refreshReplies();
 				if (onCloseRefresh != null) onCloseRefresh.run();
@@ -82,7 +82,7 @@ public class ViewPostDetail {
 		postButtons.getChildren().add(btnCreateReply);
 		if (ControllerPostDetail.canEditPost()) {
 			Button btnUpdatePost = new Button("Update Post");
-			btnUpdatePost.setOnAction(event -> {
+			btnUpdatePost.setOnAction(_ -> {
 				if (ViewUpdatePost.display(stage, currentPost, currentUsername)) {
 					currentPost = ModelPostDetail.getPost(currentPost.getPostID());
 					if (currentPost != null) {
@@ -93,7 +93,7 @@ public class ViewPostDetail {
 				}
 			});
 			Button btnDeletePost = new Button("Delete Post");
-			btnDeletePost.setOnAction(event -> ControllerPostDetail.performDeletePost());
+			btnDeletePost.setOnAction(_ -> ControllerPostDetail.performDeletePost());
 			postButtons.getChildren().addAll(btnUpdatePost, btnDeletePost);
 		}
 		root.getChildren().add(postButtons);
@@ -112,7 +112,7 @@ public class ViewPostDetail {
 		root.getChildren().add(scroll);
 
 		Button btnClose = new Button("Close");
-		btnClose.setOnAction(event -> {
+		btnClose.setOnAction(_ -> {
 			stage.close();
 			if (onCloseRefresh != null) onCloseRefresh.run();
 		});
@@ -120,7 +120,7 @@ public class ViewPostDetail {
 
 		javafx.scene.Scene scene = new javafx.scene.Scene(root, 640, 500);
 		stage.setScene(scene);
-		stage.setOnHidden(event -> {
+		stage.setOnHidden(_ -> {
 			if (onCloseRefresh != null) onCloseRefresh.run();
 		});
 		stage.show();
@@ -148,14 +148,14 @@ public class ViewPostDetail {
 			if (ControllerPostDetail.canEditReply(r)) {
 				javafx.scene.layout.HBox rButtons = new javafx.scene.layout.HBox(5);
 				Button btnUpdate = new Button("Update");
-				btnUpdate.setOnAction(event -> {
+				btnUpdate.setOnAction(_ -> {
 					if (ViewUpdateReply.display(stage, r, currentUsername)) {
 						refreshReplies();
 						ControllerPostDetail.notifyRefresh();
 					}
 				});
 				Button btnDelete = new Button("Delete");
-				btnDelete.setOnAction(event -> {
+				btnDelete.setOnAction(_ -> {
 					if (ControllerPostDetail.performDeleteReply(r)) refreshReplies();
 				});
 				rButtons.getChildren().addAll(btnUpdate, btnDelete);

@@ -66,21 +66,21 @@ public class ViewDiscussionList {
 		Button button_Search = new Button("Search");
 		button_Search.setLayoutX(375);
 		button_Search.setLayoutY(10);
-		button_Search.setOnAction(event -> doSearch());
+		button_Search.setOnAction(_ -> doSearch());
 		Button button_CreatePost = new Button("Create Post");
 		button_CreatePost.setLayoutX(20);
 		button_CreatePost.setLayoutY(48);
-		button_CreatePost.setOnAction(event -> {
+		button_CreatePost.setOnAction(_ -> {
 			if (ViewCreatePost.display(stage, currentUsername)) refreshList(null, null);
 		});
 		Button button_ViewPost = new Button("View Post");
 		button_ViewPost.setLayoutX(140);
 		button_ViewPost.setLayoutY(48);
-		button_ViewPost.setOnAction(event -> viewPost());
+		button_ViewPost.setOnAction(_ -> viewPost());
 		Button button_Refresh = new Button("Refresh");
 		button_Refresh.setLayoutX(250);
 		button_Refresh.setLayoutY(48);
-		button_Refresh.setOnAction(event -> refreshList(null, null));
+		button_Refresh.setOnAction(_ -> refreshList(null, null));
 
 		tableView_Posts = new TableView<>();
 		tableView_Posts.setLayoutX(20);
@@ -108,7 +108,7 @@ public class ViewDiscussionList {
 		Button button_Close = new Button("Close");
 		button_Close.setLayoutX(20);
 		button_Close.setLayoutY(480);
-		button_Close.setOnAction(event -> stage.close());
+		button_Close.setOnAction(_ -> stage.close());
 
 		root.getChildren().addAll(
 			label_Search, text_SearchKeyword, combobox_ThreadFilter, button_Search,
